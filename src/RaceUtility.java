@@ -6,16 +6,20 @@ public class RaceUtility {
     public static double kmToMiles (double km) {
         return km * 0.62137;
     }
-    public static double makeProper (String str) {
+    public static String makeProper (String str) {
         String temp = "";
-        Boolean cap = true;
+        boolean cap = true;
         for (int i = 0; i < str.length(); i++) {
             if (cap) {
                 temp += String.valueOf(str.charAt(i)).toUpperCase();
+                cap = false;
+            } else {
+                temp += String.valueOf(str.charAt(i)).toLowerCase();
             }
             if (String.valueOf(str.charAt(i)).equalsIgnoreCase(" ")){
-
+                cap = true;
             }
         }
+        return temp;
     }
 }
